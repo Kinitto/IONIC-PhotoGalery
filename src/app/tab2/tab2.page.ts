@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { PhotoService } from '../services/photo.service';
 
 @Component({
@@ -13,8 +12,9 @@ export class Tab2Page {
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
-
-
-
+  }
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
+  async ngOnInit() {
+    await this.photoService.loadSaved();
   }
 }
